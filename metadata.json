@@ -4,7 +4,9 @@
   "author": "Chris Southall",
   "summary": "Manage Windows package installation from URL sources.",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/southalc/winstall",
+  "project_page": "https://github.com/southalc/winstall",
+  "issues_url": "https://github.com/southalc/winstall/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
