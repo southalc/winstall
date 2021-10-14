@@ -1,0 +1,9 @@
+---
+
+winstall::products:
+  '7-Zip 19.00 (x64)':
+    ensure: 'installed'
+    source: 'https://www.7-zip.org/a/7z1900-x64.msi'
+    install_options:
+      - '/S'
+
