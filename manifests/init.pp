@@ -13,10 +13,11 @@
 class winstall(
   Hash $products = {},
 ){
-  # Create resources defined in the products hash
-  $products.each |$name, $properties| {
-    Resource['Winstall::Product'] { $name:
-      * => $properties,
+  if $::facts['kernel'] == 'windows' {
+    $products.each |$name, $properties| {
+      Resource['Winstall::Product'] { $name:
+        * => $properties,
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "southalc-winstall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Chris Southall",
   "summary": "Manage Windows package installation from URL sources.",
   "license": "Apache-2.0",
@@ -28,7 +28,12 @@
       "version_requirement": ">= 4.10.0 < 8.0.0"
     }
   ],
-  "pdk-version": "2.2.0",
-  "template-url": "pdk-default#2.2.0",
-  "template-ref": "tags/2.2.0-0-g2381db6"
+  "tags": [
+    "windows",
+    "URL",
+    "install"
+  ],
+  "pdk-version": "2.3.0",
+  "template-url": "pdk-default#2.3.0",
+  "template-ref": "tags/2.3.0-0-g8aaceff"
 }

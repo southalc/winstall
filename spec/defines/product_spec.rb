@@ -14,7 +14,7 @@ describe 'winstall::product' do
 
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let(:facts) { os_facts }
+      let(:facts) { os_facts.merge({ products: {} }) }
 
       it { is_expected.to compile }
     end

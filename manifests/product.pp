@@ -70,19 +70,19 @@ define winstall::product (
   }
 
   if $ensure == 'absent' {
-    Package { $title:
+    package { $title:
       ensure            => 'absent',
       uninstall_options => $uninstall_options,
     }
   } else {
     # Install only when not specified version is not already present, or when
     # the installed version does not match the resource declaration
-    if ! has_key($facts['products'], $title) or
+    if ! $title in $facts['products'] or
       (($ensure != 'installed') and ($ensure != $facts['products'][$title]['ensure'])) {
 
       if $source_is_url {
         # Use archive module to download to local $installer file
-        Archive { $title:
+        archive { $title:
           ensure  => 'present',
           source  => $source,
           path    => $installer,
@@ -91,14 +91,14 @@ define winstall::product (
           extract => false,
         }
         # Delete the temporary file used for the installation
-        File { $installer:
+        file { $installer:
           ensure => 'absent',
         }
         # Ensure resources are created in the correct order
         Archive[$title] -> Package[$title] -> File[$installer]
       }
       # When $source is not a URL just install directly
-      Package { $title:
+      package { $title:
         ensure          => $ensure,
         source          => $installer,
         install_options => $install_options,
