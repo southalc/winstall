@@ -75,9 +75,9 @@ define winstall::product (
       uninstall_options => $uninstall_options,
     }
   } else {
-    # Install only when not specified version is not already present, or when
-    # the installed version does not match the resource declaration
-    if ! $title in $facts['products'] or
+    # Install when the specified product is not already present or when
+    # the installed product version does not match the resource declaration.
+    if ! ($title in $facts['products']) or
       (($ensure != 'installed') and ($ensure != $facts['products'][$title]['ensure'])) {
 
       if $source_is_url {
